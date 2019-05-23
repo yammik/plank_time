@@ -33,11 +33,11 @@ client.on("message", msg => {
   const genChat = client.channels.get(process.env.CHANNEL_TEST);
 
   if (msg.author.username !== "Plank Time") {
-    const pattern = /plank *(\w*) *(.*)/;
-    const content = msg.content.toLowerCase();
+    const pattern = /plank *(\w*) *(.*)/i;
+    const { content } = msg;
     const matched = content.match(pattern);
     if (matched) {
-      const command = matched[1];
+      const command = matched[1].toLowerCase();
       switch (command) {
         case "silence":
           msg.reply("Silenced.");
