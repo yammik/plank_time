@@ -24,13 +24,13 @@ function itIsTime(channel) {
 }
 
 client.on("ready", () => {
-  const genChat = client.channels.get(process.env.CHANNEL_TEST);
+  const genChat = client.channels.get(process.env.CHANNEL);
   genChat.send("It is Plank time.");
   plankTime = itIsTime(genChat);
 });
 
 client.on("message", msg => {
-  const genChat = client.channels.get(process.env.CHANNEL_TEST);
+  const genChat = client.channels.get(process.env.CHANNEL);
 
   if (msg.author.username !== "Plank Time") {
     const pattern = /plank *(\w*) *(.*)/i;
